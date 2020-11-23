@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(getProductsList());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -35,6 +35,7 @@ const HomeScreen = () => {
         transition={{ duration: '2' }}
       >
         <div className='container grid'>
+          {/* <Spinner /> */}
           {loading && <Spinner />}
           {error && <h1>{Error}</h1>}
           {products &&

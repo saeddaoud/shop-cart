@@ -5,7 +5,7 @@ export const cartReducer = (state = { order: [] }, action) => {
   switch (type) {
     case CART_ADD:
       const alreadyInCart =
-        state.order.filter((el) => el.id === payload.id).length > 0
+        state.order.filter((el) => el._id === payload._id).length > 0
           ? true
           : false;
 
@@ -13,7 +13,7 @@ export const cartReducer = (state = { order: [] }, action) => {
         ...state,
         order: alreadyInCart
           ? state.order.map((el) =>
-              el.id === payload.id
+              el._id === payload._id
                 ? { ...payload, qty: el.qty + payload.qty }
                 : el
             )
@@ -22,7 +22,7 @@ export const cartReducer = (state = { order: [] }, action) => {
     case CART_UPDATE:
       return {
         ...state,
-        order: state.order.map((el) => (el.id === payload.id ? payload : el)),
+        order: state.order.map((el) => (el._id === payload._id ? payload : el)),
       };
     default:
       return state;

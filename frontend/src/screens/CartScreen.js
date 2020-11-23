@@ -86,6 +86,7 @@ const CartScreen = () => {
                   </ul>
                 </div>
               </div>
+              {/* <div className='price-details-and-checkout'> */}
               <div className='price-details'>
                 <h1>Subtotal</h1>
                 <span className='order-price'>
@@ -95,6 +96,7 @@ const CartScreen = () => {
                   ).toFixed(2)}
                 </span>
               </div>
+              {/* </div> */}
             </div>
           </>
         )}

@@ -1,3 +1,14 @@
+:root {
+  --primary-color: rgb(22, 20, 49);
+}
+
+.spinner-wrapper {
+  width: 100%;
+  height: calc(100vh - 80px - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .spinner {
   width: 100px;
   height: 100px;
@@ -10,15 +21,15 @@
   height: 100%;
   position: absolute;
   border: 10px solid transparent;
-  border-top-color: #ad60f5;
+  border-top-color: var(--primary-color);
   border-radius: 50%;
-  animation: spinnerOne 1.2s linear infinite;
+  animation: spinnerOne 1.5s linear infinite;
 }
 
 .spinner div:nth-child(2) {
   border: 10px solid transparent;
-  border-bottom-color: #ad60f5;
-  animation: spinnerTwo 1.2s linear infinite;
+  border-bottom-color: var(--primary-color);
+  animation: spinnerTwo 1.5s linear infinite;
 }
 
 @keyframes spinnerOne {
