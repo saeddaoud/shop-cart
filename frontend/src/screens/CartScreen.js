@@ -44,9 +44,9 @@ const CartScreen = () => {
               </div> */}
                   <ul>
                     {order.map((item) => (
-                      <li key={item.id}>
+                      <li key={item._id}>
                         <div className='details-card__name details-card__row'>
-                          <Link to={`/product/${item.id}`}>{item.name}</Link>
+                          <Link to={`/product/${item._id}`}>{item.name}</Link>
                         </div>
                         <div className='details-card__row'>
                           <span>Qty: </span>

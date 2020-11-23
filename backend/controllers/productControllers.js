@@ -12,7 +12,7 @@ const getSingleProduct = asyncHandler(async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id))
     throw new Error('Not a valid ObjectID');
 
-  const product = await Product.find({ _id: req.params.id });
+  const product = await Product.findById(req.params.id);
 
   if (product) {
     res.json(product);

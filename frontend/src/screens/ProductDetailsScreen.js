@@ -8,26 +8,21 @@ import Spinner from '../components/Spinner';
 import { getProductDetails } from '../actions/productActions';
 
 const ProductDetailsScreen = ({ match }) => {
-  // const productId = match.params.id;
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-  // const { order } = useSelector((state) => state.cart);
 
-  console.log(product);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProductDetails(match.params.id));
-  }, [match, dispatch]);
+  }, [dispatch, match]);
 
-  // if (Object.keys(product).length === 0 && order.length > 0) {
-  //   const flag = true
-  //   product = order.filter((item) => item.id === Number(productId))[0];
-  // }
+  // useEffect(() => {
+  //   console.log(loading, product);
+  // }, []);
+
   const [qty, setQty] = useState(1);
-
-  // console.log(product);
 
   const handleOnClick = (e) => {
     dispatch(addToCart({ ...product, qty: Number(qty) }));
@@ -42,46 +37,53 @@ const ProductDetailsScreen = ({ match }) => {
       transition={{ duration: 2 }}
     >
       <div className='container'>
-        {loading && <Spinner />}
-        {product && (
-          <div className='product-details'>
-            <h1 className='product-name'>{product.name}</h1>
-            <span className='product-price'>
-              <strong>Price: </strong>${product.price}
-            </span>
-            <div className='rating'>
-              <Rating rating={product.rating} />
-              <span className='num-reviews'>{product.numReviews} reviews</span>
-            </div>
-            <div className='product-image'>
-              <img src={product.image} alt='product' />
-            </div>
-            <div className='product-description'>
-              <p>{product.description}</p>
-            </div>
-            <div className='product-actions'>
-              <div className='product-qty'>
-                <span>Qty: </span>
-                <select
-                  name='qty'
-                  id='qty'
-                  value={qty}
-                  onChange={(e) => setQty(e.target.value)}
-                >
-                  {/* <option value=''>...</option> */}
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                </select>
+        {loading ? (
+          <Spinner />
+        ) : error ? (
+          <h1>{error}</h1>
+        ) : (
+          product && (
+            <div className='product-details'>
+              <h1 className='product-name'>{product.name}</h1>
+              <span className='product-price'>
+                <strong>Price: </strong>${product.price}
+              </span>
+              <div className='rating'>
+                <Rating rating={product.rating} />
+                <span className='num-reviews'>
+                  {product.numReviews} reviews
+                </span>
               </div>
-              <div className='product-cart'>
-                <button className='btn' onClick={handleOnClick}>
-                  Add to Cart
-                </button>
+              <div className='product-image'>
+                <img src={product.image} alt='product' />
+              </div>
+              <div className='product-description'>
+                <p>{product.description}</p>
+              </div>
+              <div className='product-actions'>
+                <div className='product-qty'>
+                  <span>Qty: </span>
+                  <select
+                    name='qty'
+                    id='qty'
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                  >
+                    {/* <option value=''>...</option> */}
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                  </select>
+                </div>
+                <div className='product-cart'>
+                  <button className='btn' onClick={handleOnClick}>
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )
         )}
       </div>
     </motion.div>
