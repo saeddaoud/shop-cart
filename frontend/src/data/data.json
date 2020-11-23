@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 12 64GB",
+        "price": 799.99,
+        "rating": 4.5,
+        "numReviews": 50,
+        "description": "Super Retina XDR display, 6.1‑inch (diagonal) all‑screen OLED display, 2532‑by‑1170-pixel resolution at 460 ppi. Colors: Black, White, Green, Blue. Capacity 64 GB"
+    },
+    {
+        "id": 2,
+        "name": "Earbuds",
+        "price": 99.99,
+        "rating": 4,
+        "numReviews": 158,
+        "description": "Pair these Buds with your phone or tablet and go. Listen and chat during the day, then wirelessly recharge for 15 minutes to get up to 1.7 more hours of play time. "
+    },
+    {
+        "id": 3,
+        "name": "Canon EOS Rebel T7 DSLR Camera",
+        "price": 599.99,
+        "rating": 5,
+        "numReviews": 10,
+        "description": "Take your photography to the next level with the Canon EOS Rebel T7 DSLR camera, which comes complete with an 18-55mm lens, a 32GB SD card, and a camera bag. Its 24.1MP CMOS sensor lets you take high-quality shots that you can share with the whole world. Its easy-to-use operation allows you to capture every moment as it happens."
+    },
+    {
+        "id": 4,
+        "name": "Logitech MX518 Optical Mouse",
+        "price": 59.99,
+        "rating": 3.5,
+        "numReviews": 73,
+        "description": "Take your gaming to the next level with the Logitech MX518 mouse. Boasting a 16,000 DPI optical sensor, this mouse comes equipped with a 32-bit ARM processor with built-in memory and a 1ms report rate. Programmable buttons and onboard profiles deliver a customized experience with professional-grade performance."
+    }
+   
+]
