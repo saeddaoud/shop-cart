@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './StepArrowProgressBar.css';
 
 const StepArrowProgressBar = ({
@@ -14,7 +15,8 @@ const StepArrowProgressBar = ({
         <div></div>
       </div>
       <div className={step2}>
-        <span>{step2 === 'active' ? 'Shipping Address' : 2}</span> <div></div>
+        <span>{step2 === 'active' ? 'Shipping Address' : 2}</span>
+        <div></div>
       </div>
       <div className={step3}>
         <span>{step3 === 'active' ? 'Review Order' : 3}</span> <div></div>

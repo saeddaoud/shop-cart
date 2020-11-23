@@ -86,17 +86,20 @@ const CartScreen = () => {
                   </ul>
                 </div>
               </div>
-              {/* <div className='price-details-and-checkout'> */}
-              <div className='price-details'>
-                <h1>Subtotal</h1>
-                <span className='order-price'>
-                  $
-                  {parseFloat(
-                    order.reduce((acc, cur) => acc + cur.qty * cur.price, 0)
-                  ).toFixed(2)}
-                </span>
+              <div className='price-details-and-checkout'>
+                <div className='price-details'>
+                  <h1>Subtotal</h1>
+                  <span className='order-price'>
+                    $
+                    {parseFloat(
+                      order.reduce((acc, cur) => acc + cur.qty * cur.price, 0)
+                    ).toFixed(2)}
+                  </span>
+                </div>
+                <Link to='/shipping' className='checkout-btn btn'>
+                  Checkout
+                </Link>
               </div>
-              {/* </div> */}
             </div>
           </>
         )}

@@ -1,0 +1,44 @@
+.place-order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.personal-info {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0;
+}
+
+/* .personal-info p {
+  
+} */
+
+.shipping-info {
+  margin-top: 1rem;
+}
+
+.total-price-details {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0;
+}
+
+.total-price-details h2 {
+  margin-bottom: 1rem;
+}
+.total-price-details-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

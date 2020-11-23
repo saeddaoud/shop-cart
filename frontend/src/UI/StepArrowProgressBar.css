@@ -25,6 +25,7 @@
 .display-table .completed {
   background: var(--primary-color);
   color: white;
+  cursor: pointer;
 }
 
 .display-table > div > div {
@@ -48,12 +49,12 @@
 }
 
 .display-table .active {
-  width: 220px;
+  width: 200px;
   /* animation: bg-animation 2s ease-in-out infinite; */
   background-color: var(--active-color);
   color: white;
   font-weight: bold;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   /* animation: background-animation 2s ease-in infinite alternate; */
 }
 
@@ -64,6 +65,7 @@
 
 .display-table .completed > div {
   background: var(--primary-color);
+  border-color: white;
 }
 
 /* @keyframes bg-animation {
