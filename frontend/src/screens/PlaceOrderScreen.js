@@ -41,7 +41,7 @@ const PlaceOrderScreen = () => {
           <div className='total-price-details'>
             <h4>Price Details</h4>
             <div className='total-price-details-item'>
-              <span>items</span>
+              <span>Items</span>
               <span>${totalItemPrice}</span>
             </div>
             <div className='total-price-details-item'>
