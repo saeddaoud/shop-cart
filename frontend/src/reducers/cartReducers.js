@@ -1,5 +1,6 @@
 import {
   CART_ADD,
+  CART_EMPTY,
   CART_UPDATE,
   ITEM_DELETE,
   SHIPPING_ADDRESS_SET,
@@ -51,6 +52,8 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         order: state.order.filter((item) => item._id !== payload),
       };
+    case CART_EMPTY:
+      return initialState;
     default:
       return state;
   }

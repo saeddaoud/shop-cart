@@ -1,5 +1,6 @@
 import {
   CART_ADD,
+  CART_EMPTY,
   CART_UPDATE,
   ITEM_DELETE,
   SHIPPING_ADDRESS_SET,
@@ -27,6 +28,14 @@ export const deleteItemFromCart = (itemId) => (dispatch, getState) => {
     payload: itemId,
   });
   localStorage.setItem('user-order', JSON.stringify(getState().cart.order));
+};
+
+export const emptyCart = () => (dispatch) => {
+  dispatch({
+    type: CART_EMPTY,
+  });
+  localStorage.removeItem('user-order');
+  localStorage.removeItem('shipping-address');
 };
 
 export const setShippingAddress = (address) => (dispatch, getState) => {

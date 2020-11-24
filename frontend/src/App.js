@@ -7,6 +7,7 @@ import ProductDetailsScreen from './screens/ProductDetailsScreen';
 import { AnimatePresence } from 'framer-motion';
 import ShippingDetailsScreen from './screens/ShippingDetailsScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ConfirmationScreen from './screens/ConfirmationScreen';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path='/product/:id' component={ProductDetailsScreen} />
           <Route exact path='/shipping' component={ShippingDetailsScreen} />
           <Route exact path='/review' component={PlaceOrderScreen} />
+          <Route exact path='/confirmation' component={ConfirmationScreen} />
         </Switch>
       </AnimatePresence>
     </Router>
