@@ -1,3 +1,7 @@
+:root {
+  --primary-color: rgb(22, 20, 49);
+}
+
 .shipping-info-card {
   width: 100%;
   min-height: 100px;
@@ -19,10 +23,29 @@
 .shipping-info-card h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   /* text-align: center; */
 }
 
 .shipping-info p {
+  font-size: 1.5rem;
+}
+
+.shipping-info-card-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.edit-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--primary-color); */
+  color: var(--primary-color);
   font-size: 1.5rem;
 }

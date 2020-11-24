@@ -1,11 +1,23 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BackDrop from '../components/BackDrop';
+import Form from '../components/Form';
 import StepArrowProgressBar from '../UI/StepArrowProgressBar';
 
 import './ShippingDetailsScreen.css';
 
 const ShippingDetails = () => {
+  const [update, setUpdate] = useState(false);
+  const [address, setAddress] = useState({
+    street: '2222 MTL Ave.',
+    apt: '111',
+    city: 'Montreal',
+    country: 'Canada',
+    province: 'QC',
+    postalCode: 'Y1Y1Y1',
+  });
+
   return (
     <motion.div
       className='page shipping-page'
@@ -16,12 +28,32 @@ const ShippingDetails = () => {
     >
       <div className='container'>
         <StepArrowProgressBar step1='completed' step2='active' />
+        {update && (
+          <>
+            <BackDrop onClick={setUpdate} />
+            <Form
+              address={address}
+              updateAddress={setAddress}
+              onUpdate={setUpdate}
+              update={update}
+            />
+          </>
+        )}
         <div className='shipping-info-card'>
-          <h2>Shipping Address</h2>
+          <div className='shipping-info-card-row'>
+            <h2>Shipping Address</h2>
+            <button className='edit-btn' onClick={() => setUpdate(true)}>
+              <i className='far fa-edit'></i>
+            </button>
+          </div>
           <div className='shipping-info'>
-            <p>111-2222 MTL Street</p>
-            <p>Montreal, QC, Canada</p>
-            <p>Y1Y1Y1</p>
+            <p>
+              {address.apt}-{address.street}
+            </p>
+            <p>
+              {address.city}, {address.province}, {address.country}
+            </p>
+            <p>{address.postalCode}</p>
           </div>
         </div>
         <Link to='/review' className='confirm-btn btn'>
