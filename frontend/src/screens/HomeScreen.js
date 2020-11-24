@@ -28,7 +28,7 @@ const HomeScreen = () => {
   return (
     <>
       <motion.div
-        className='page'
+        className='page home-page'
         exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

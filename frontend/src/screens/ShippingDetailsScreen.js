@@ -79,9 +79,11 @@ const ShippingDetails = () => {
             <p>{postalCode}</p>
           </div>
         </div>
-        <Link to='/review' className='confirm-btn btn'>
-          Confirm
-        </Link>
+        <div className='confirm-btn'>
+          <Link to='/review' className=' btn'>
+            Confirm
+          </Link>
+        </div>
       </div>
     </motion.div>
   );
