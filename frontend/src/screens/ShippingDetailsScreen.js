@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BackDrop from '../components/BackDrop';
 import Form from '../components/Form';
@@ -9,14 +10,36 @@ import './ShippingDetailsScreen.css';
 
 const ShippingDetails = () => {
   const [update, setUpdate] = useState(false);
+  const { shippingAddress } = useSelector((state) => state.cart);
+  const { street, apt, city, country, province, postalCode } = shippingAddress;
+
   const [address, setAddress] = useState({
-    street: '2222 MTL Ave.',
-    apt: '111',
-    city: 'Montreal',
-    country: 'Canada',
-    province: 'QC',
-    postalCode: 'Y1Y1Y1',
+    street,
+    apt,
+    city,
+    country,
+    province,
+    postalCode,
   });
+
+  useEffect(() => {
+    setAddress({
+      street,
+      apt,
+      city,
+      country,
+      province,
+      postalCode,
+    });
+  }, [shippingAddress]);
+  // const [address, setAddress] = useState({
+  //   street: '2222 MTL Ave.',
+  //   apt: '111',
+  //   city: 'Montreal',
+  //   country: 'Canada',
+  //   province: 'QC',
+  //   postalCode: 'Y1Y1Y1',
+  // });
 
   return (
     <motion.div
@@ -32,10 +55,10 @@ const ShippingDetails = () => {
           <>
             <BackDrop onClick={setUpdate} />
             <Form
-              address={address}
-              updateAddress={setAddress}
+              // address={address}
+              // updateAddress={setAddress}
               onUpdate={setUpdate}
-              update={update}
+              // update={update}
             />
           </>
         )}
@@ -48,12 +71,12 @@ const ShippingDetails = () => {
           </div>
           <div className='shipping-info'>
             <p>
-              {address.apt}-{address.street}
+              {apt}-{street}
             </p>
             <p>
-              {address.city}, {address.province}, {address.country}
+              {city}, {province}, {country}
             </p>
-            <p>{address.postalCode}</p>
+            <p>{postalCode}</p>
           </div>
         </div>
         <Link to='/review' className='confirm-btn btn'>

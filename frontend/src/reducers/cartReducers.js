@@ -1,6 +1,22 @@
-import { CART_ADD, CART_UPDATE } from '../constants/cartConstants';
+import {
+  CART_ADD,
+  CART_UPDATE,
+  SHIPPING_ADDRESS_SET,
+} from '../constants/cartConstants';
 
-export const cartReducer = (state = { order: [] }, action) => {
+const initialState = {
+  order: [],
+  shippingAddress: {
+    street: '2222 MTL Ave.',
+    apt: '111',
+    city: 'Montreal',
+    country: 'Canada',
+    province: 'QC',
+    postalCode: 'Y1Y1Y1',
+  },
+};
+
+export const cartReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case CART_ADD:
@@ -23,6 +39,11 @@ export const cartReducer = (state = { order: [] }, action) => {
       return {
         ...state,
         order: state.order.map((el) => (el._id === payload._id ? payload : el)),
+      };
+    case SHIPPING_ADDRESS_SET:
+      return {
+        ...state,
+        shippingAddress: payload,
       };
     default:
       return state;

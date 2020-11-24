@@ -1,10 +1,26 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setShippingAddress } from '../actions/cartActions';
 
 import './Form.css';
 
-const Form = ({ address, updateAddress, onUpdate, update }) => {
-  console.log('form', update);
+const Form = ({ onUpdate }) => {
+  const { shippingAddress } = useSelector((state) => state.cart);
+  const { street, apt, city, country, province, postalCode } = shippingAddress;
+
+  const [address, setAddress] = useState({
+    street,
+    apt,
+    city,
+    country,
+    province,
+    postalCode,
+  });
+
+  const dispatch = useDispatch();
+
+  // console.log('form', update);
   //   const [street, setStreet] = useState(street);
   //   const [apt, setApt] = useState(apt);
   //   const [city, setCity] = useState(city);
@@ -14,6 +30,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setShippingAddress({ ...address }));
     onUpdate(false);
   };
 
@@ -35,7 +52,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.street}
           placeholder='street'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>
@@ -47,7 +64,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.apt}
           placeholder='apartment'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>
@@ -59,7 +76,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.city}
           placeholder='City'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>
@@ -71,7 +88,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.province}
           placeholder='Province'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>
@@ -83,7 +100,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.country}
           placeholder='country'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>
@@ -95,7 +112,7 @@ const Form = ({ address, updateAddress, onUpdate, update }) => {
           value={address.postalCode}
           placeholder='Postal Code'
           onChange={(e) =>
-            updateAddress({ ...address, [e.target.name]: e.target.value })
+            setAddress({ ...address, [e.target.name]: e.target.value })
           }
         />
       </div>

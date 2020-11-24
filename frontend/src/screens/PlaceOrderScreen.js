@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import StepArrowProgressBar from '../UI/StepArrowProgressBar';
 
 import './PlaceOrderScreen.css';
 
 const PlaceOrderScreen = () => {
+  const { shippingAddress } = useSelector((state) => state.cart);
+  const { street, apt, city, country, province, postalCode } = shippingAddress;
   return (
     <motion.div
       className='page shipping-page'
@@ -34,10 +37,14 @@ const PlaceOrderScreen = () => {
           <div className='personal-info'>
             <p>John Doe</p>
             <div className='shipping-info'>
-              <p>111-2222 MTL Street</p>
-              <p>Montreal, QC, Canada</p>
-              <p>Y1Y1Y1</p>
-              <p>111-111-111</p>
+              <p>
+                {apt}-{street}
+              </p>
+              <p>
+                {city}, {province}, {country}
+              </p>
+              <p>{postalCode}</p>
+              <p>111-111-1111</p>
             </div>
           </div>
         </div>
