@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 
 import './CartScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, updateCart } from '../actions/cartActions';
+import {
+  addToCart,
+  deleteItemFromCart,
+  updateCart,
+} from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 
 const CartScreen = () => {
@@ -20,6 +24,10 @@ const CartScreen = () => {
   useEffect(() => {
     if (changed) dispatch(updateCart({ ...product, qty: Number(qty) }));
   }, [qty, product, changed]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteItemFromCart(id));
+  };
 
   return (
     <motion.div
@@ -43,46 +51,51 @@ const CartScreen = () => {
                 <img src={phone} alt='' />
               </div> */}
                   <ul>
-                    {order.map((item) => (
-                      <li key={item._id}>
-                        <div className='details-card__name details-card__row'>
-                          <Link to={`/product/${item._id}`}>{item.name}</Link>
-                        </div>
-                        <div className='details-card__row'>
-                          <span>Qty: </span>
-                          <span>Price</span>
-                        </div>
+                    {order.map((item) => {
+                      return (
+                        <li key={item._id}>
+                          <div className='details-card__name details-card__row'>
+                            <Link to={`/product/${item._id}`}>{item.name}</Link>
+                            <button onClick={() => handleDelete(item._id)}>
+                              <i className='far fa-trash-alt'></i>
+                            </button>
+                          </div>
+                          <div className='details-card__row'>
+                            <span>Qty: </span>
+                            <span>Price</span>
+                          </div>
 
-                        <div className='details-card__qty details-card__row'>
-                          <select
-                            name='qty'
-                            id='qty'
-                            value={item.qty}
-                            onChange={(e) => {
-                              setQty(e.target.value);
-                              setId(item.id);
-                              setProduct(item);
-                              setChanged(true);
-                              // setQty(e.target.value);
-                              // setId(item.id);
-                              // setChanged(true);
-                            }}
-                          >
-                            {/* <option value=''>...</option> */}
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                          </select>
+                          <div className='details-card__qty details-card__row'>
+                            <select
+                              name='qty'
+                              id='qty'
+                              value={item.qty}
+                              onChange={(e) => {
+                                setQty(e.target.value);
+                                setId(item.id);
+                                setProduct(item);
+                                setChanged(true);
+                                // setQty(e.target.value);
+                                // setId(item.id);
+                                // setChanged(true);
+                              }}
+                            >
+                              {/* <option value=''>...</option> */}
+                              <option value='1'>1</option>
+                              <option value='2'>2</option>
+                              <option value='3'>3</option>
+                              <option value='4'>4</option>
+                            </select>
 
-                          <span>
-                            ${parseFloat(item.qty * item.price).toFixed(2)}
-                          </span>
-                        </div>
+                            <span>
+                              ${parseFloat(item.qty * item.price).toFixed(2)}
+                            </span>
+                          </div>
 
-                        <div className='h-line'></div>
-                      </li>
-                    ))}
+                          <div className='h-line'></div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

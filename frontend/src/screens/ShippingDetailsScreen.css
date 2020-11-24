@@ -48,4 +48,8 @@
   /* background-color: var(--primary-color); */
   color: var(--primary-color);
   font-size: 1.5rem;
+  background: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import {
   CART_ADD,
   CART_UPDATE,
+  ITEM_DELETE,
   SHIPPING_ADDRESS_SET,
 } from '../constants/cartConstants';
 
@@ -44,6 +45,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         shippingAddress: payload,
+      };
+    case ITEM_DELETE:
+      return {
+        ...state,
+        order: state.order.filter((item) => item._id !== payload),
       };
     default:
       return state;

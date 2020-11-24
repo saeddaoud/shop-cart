@@ -66,6 +66,12 @@
 .details-card__name {
   font-weight: 500;
 }
+.details-card__name button {
+  background: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
 .details-card__row {
   width: 100%;
   /* height: 60px; */

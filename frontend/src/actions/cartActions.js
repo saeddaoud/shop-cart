@@ -1,6 +1,7 @@
 import {
   CART_ADD,
   CART_UPDATE,
+  ITEM_DELETE,
   SHIPPING_ADDRESS_SET,
 } from '../constants/cartConstants';
 
@@ -16,6 +17,14 @@ export const updateCart = (item) => (dispatch, getState) => {
   dispatch({
     type: CART_UPDATE,
     payload: item,
+  });
+  localStorage.setItem('user-order', JSON.stringify(getState().cart.order));
+};
+
+export const deleteItemFromCart = (itemId) => (dispatch, getState) => {
+  dispatch({
+    type: ITEM_DELETE,
+    payload: itemId,
   });
   localStorage.setItem('user-order', JSON.stringify(getState().cart.order));
 };
