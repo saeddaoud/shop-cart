@@ -24,7 +24,7 @@ const ProductDetailsScreen = ({ match }) => {
 
   const [qty, setQty] = useState(1);
 
-  const handleOnClick = (e) => {
+  const handleOnClick = () => {
     dispatch(addToCart({ ...product, qty: Number(qty) }));
   };
 

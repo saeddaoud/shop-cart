@@ -362,6 +362,9 @@ a {
   }
 }
 @media (min-width: 960px) {
+  .container {
+    width: 70%;
+  }
   .product-details {
     width: 70%;
     margin: 0 auto;
@@ -372,10 +375,10 @@ a {
   }
 }
 @media (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
   .home-page .grid {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-  .container {
-    width: 80%;
   }
 }

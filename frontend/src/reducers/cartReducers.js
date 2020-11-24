@@ -32,7 +32,7 @@ export const cartReducer = (state = initialState, action) => {
         order: alreadyInCart
           ? state.order.map((el) =>
               el._id === payload._id
-                ? { ...payload, qty: el.qty + payload.qty }
+                ? { ...payload, qty: Number(el.qty) + Number(payload.qty) }
                 : el
             )
           : [...state.order, payload],

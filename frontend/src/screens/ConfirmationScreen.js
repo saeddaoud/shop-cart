@@ -29,9 +29,11 @@ const ConfirmationScreen = () => {
             the next 3 business days
           </p>
         </div>
-        <Link to='/' className='btn btn-fullwidth'>
-          Continue Shopping
-        </Link>
+        <div className='continue-btn'>
+          <Link to='/' className='btn'>
+            Continue Shopping
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

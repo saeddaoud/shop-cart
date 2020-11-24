@@ -18,6 +18,32 @@
   line-height: 1.5;
 }
 
-.btn-fullwidth {
+.continue-btn {
   width: 100%;
+}
+
+.continue-btn .btn {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .confirmation {
+    width: 60%;
+    margin: 1rem auto;
+  }
+
+  .continue-btn .btn {
+    width: 50%;
+  }
+}
+
+@media (min-width: 960px) {
+  .confirmation {
+    width: 50%;
+  }
+  .continue-btn .btn {
+    width: 30%;
+  }
 }

@@ -38,31 +38,40 @@ const PlaceOrderScreen = () => {
           step3='active'
         />
         <div className='place-order-details'>
-          <div className='total-price-details'>
-            <h4>Price Details</h4>
-            <div className='total-price-details-item'>
-              <span>Items</span>
-              <span>${totalItemPrice}</span>
+          <div className='place-order-action-details'>
+            <div className='total-price-details'>
+              <h4>Price Details</h4>
+              <div className='total-price-details-item'>
+                <span>Items</span>
+                <span>${totalItemPrice}</span>
+              </div>
+              <div className='total-price-details-item'>
+                <span>Shipping</span>
+                <span>${shippingCost}</span>
+              </div>
+              <div className='total-price-details-item'>
+                <span>Tax</span>
+                <span>${totalTaxPrice}</span>
+              </div>
+              <div className='h-line'></div>
+              <div className='total-price-details-item'>
+                <span>Total</span>
+                <span>${parseFloat(totalPrice).toFixed(2)}</span>
+              </div>
             </div>
-            <div className='total-price-details-item'>
-              <span>Shipping</span>
-              <span>${shippingCost}</span>
-            </div>
-            <div className='total-price-details-item'>
-              <span>Tax</span>
-              <span>${totalTaxPrice}</span>
-            </div>
-            <div className='h-line'></div>
-            <div className='total-price-details-item'>
-              <span>Total</span>
-              <span>${parseFloat(totalPrice).toFixed(2)}</span>
-            </div>
+            <Link
+              to='/confirmation'
+              className='confirm-btn btn'
+              onClick={handleClick}
+            >
+              Place Order
+            </Link>
           </div>
 
-          <div className='personal-info'>
+          <div className='personal-info '>
             <h4>Shipping Address</h4>
             <p>John Doe</p>
-            <div className='shipping-info'>
+            <div className='shipping-info '>
               <p>
                 {apt}-{street}
               </p>
@@ -93,13 +102,6 @@ const PlaceOrderScreen = () => {
               </ul>
             </div>
           </div>
-          <Link
-            to='/confirmation'
-            className='confirm-btn btn'
-            onClick={handleClick}
-          >
-            Place Order
-          </Link>
         </div>
       </div>
     </motion.div>
