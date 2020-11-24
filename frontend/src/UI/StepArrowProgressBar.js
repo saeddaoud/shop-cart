@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './StepArrowProgressBar.css';
+// import './StepArrowProgressBar.css';
 
 const StepArrowProgressBar = ({
   step1 = '',
