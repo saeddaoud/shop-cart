@@ -246,7 +246,7 @@ a {
   position: relative;
   text-align: center;
   line-height: 20px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .display-table .completed {
@@ -272,11 +272,11 @@ a {
 } */
 
 .display-table > div:not(:first-child) > span {
-  margin-left: 1.5rem;
+  margin-left: 1.2rem;
 }
 
 .display-table .active {
-  width: 200px;
+  width: 150px;
   /* animation: bg-animation 2s ease-in-out infinite; */
   background-color: var(--active-color);
   color: white;
