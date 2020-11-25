@@ -155,6 +155,10 @@ a {
   font-size: 2rem;
 }
 
+.product-details h1 {
+  text-align: center;
+}
+
 .product-name {
   letter-spacing: 2px;
   margin-bottom: 2rem;
@@ -316,6 +320,7 @@ a {
   cursor: pointer;
   color: #fff;
   font-family: inherit;
+  text-align: center;
 }
 
 .btn-light {

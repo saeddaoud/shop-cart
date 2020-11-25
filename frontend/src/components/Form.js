@@ -116,9 +116,11 @@ const Form = ({ onUpdate }) => {
           }
         />
       </div>
-      <button type='submit' className='btn btn-light'>
-        Update
-      </button>
+      <div className='form-control'>
+        <button type='submit' className='btn btn-light'>
+          Update
+        </button>
+      </div>
     </form>
     // </motion.div>
   );

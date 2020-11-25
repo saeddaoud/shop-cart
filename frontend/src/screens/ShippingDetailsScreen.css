@@ -3,7 +3,7 @@
 }
 
 .shipping-info-card {
-  width: 50%;
+  width: 100%;
   min-height: 100px;
   border: 1px solid black;
   border-radius: 10px;
@@ -23,6 +23,7 @@
   display: block;
   margin: 0 auto;
   width: 30%;
+  text-align: center;
 }
 
 .shipping-info-card h2 {
