@@ -236,6 +236,7 @@ a {
   margin: 2rem 0;
   overflow: hidden;
   table-layout: fixed;
+  font-size: 1.2rem;
 }
 
 .display-table > div {
@@ -246,7 +247,7 @@ a {
   position: relative;
   text-align: center;
   line-height: 20px;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .display-table .completed {
@@ -272,7 +273,7 @@ a {
 } */
 
 .display-table > div:not(:first-child) > span {
-  margin-left: 1.2rem;
+  /* margin-left: 1.2rem; */
 }
 
 .display-table .active {
@@ -347,6 +348,8 @@ a {
   }
   .display-table {
     height: 40px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
   }
   .display-table > div {
     line-height: 40px;
