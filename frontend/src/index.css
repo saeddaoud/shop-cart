@@ -67,6 +67,7 @@ body {
   align-items: center;
   font-size: 2rem;
   animation: numItems 1s ease-in;
+  /* transition: all 1s ease-in; */
 }
 
 /* Page */
@@ -74,13 +75,7 @@ body {
 .product-page {
   width: 100%;
   min-height: calc(100vh - 80px - 4rem);
-  /* padding: 2rem 0; */
 }
-
-/* .product-page .container {
-  margin: 0 auto;
-  min-height: calc(100vh - 80px - 4rem);
-} */
 
 /* Card */
 .card {
